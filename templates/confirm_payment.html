@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>This is confirm payment page</h1>
+<h4>Booking number: {{ booking_number }}</h4>
+<h4>Token: {{ Token }}</h4>
+<h4>Booker email: {{ email }}</h4>
+<h4>Provider: {{ Method_name }}</h4>
+
+<form method="POST">
+  {% csrf_token %}
+      <input type="submit" id="confirm" name="confirm" value="CONFIRM">
+</form>
+</body>
+</html>

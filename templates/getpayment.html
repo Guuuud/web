@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+  <li><p style="color: darkgreen;">Choose md as I use md's API</p></li>
+
+</ul>
+<form method="POST">
+    {% csrf_token %}
+    {% for method in pay_method %}
+         <input type="submit" name="method" value={{ method }}>
+    {% endfor %}
+
+<a href="/">Cancel</a>
+  </form>
+</body>
+
+</body>
+</html>

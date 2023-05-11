@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>This is make payment page</h1>
+<ul>
+  <li><p style="color: darkgreen;">You can use this account</p></li>
+  <li><p style="color: darkgreen;">Email: Power@qq.com</p></li>
+  <li><p style="color: darkgreen;">Password: 123</p></li>
+  <li><p style="color: darkgreen;">You won't get successful login if using wrong account</p></li>
+
+</ul>
+<form method="POST">
+  {% csrf_token %}
+<label for="Email">Email</label>
+  <input type="text" id="to_city" name="email" >
+  <br>
+  <label for="Password">Password</label>
+  <input type="text" id="departure_date" name="password">
+  <br>
+  <input type="submit" value="Login">
+</form>
+</body>
+</html>

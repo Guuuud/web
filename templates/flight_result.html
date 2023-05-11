@@ -1,0 +1,50 @@
+{% load static %}
+<html lang="en">
+<head>
+    <title>Title</title>
+    <link href="{% static 'css/base.css' %}" rel = "stylesheet">
+</head>
+<body>
+<h1>This is where the flight search results will be displayed.</h1>
+<table>
+  <tr>
+    <th>Depart ID</th>
+    <th>Arrival ID</th>
+    <th>Departure Time</th>
+    <th>Flight Time</th>
+    <th>Business Seats</th>
+    <th>Economy Seats</th>
+    <th>First Seats</th>
+    <th>Airline ID</th>
+    <th>Price</th>
+    <th>Flight ID</th>
+          <th></th>
+
+  </tr>
+  <tr>
+    <td>{{ jsonData.Depart_id }}</td>
+    <td>{{ jsonData.Arrival_id }}</td>
+    <td>{{ jsonData.Departure_time }}</td>
+    <td>{{ jsonData.Flight_time }}</td>
+    <td>{{ jsonData.Business_seats }}</td>
+    <td>{{ jsonData.Economy_seats }}</td>
+    <td>{{ jsonData.First_seats }}</td>
+    <td>{{ jsonData.Airline_id }}</td>
+    <td>{{ jsonData.Price }}</td>
+    <td>{{ jsonData.Flight_id }}</td>
+      <td>
+  <form method="POST">
+    {% csrf_token %}
+      <input type="hidden" id="Flight_id" name="Flight_id" value={{ jsonData.Flight_id }}>
+    <input type="submit" name="flighst_id" value="choose">
+  </form>
+</td>
+
+</td>
+
+
+  </tr>
+</table>
+
+</body>
+</html>
