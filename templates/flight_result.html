@@ -18,32 +18,47 @@
     <th>Airline ID</th>
     <th>Price</th>
     <th>Flight ID</th>
+          <th>Class</th>
           <th></th>
 
   </tr>
+    {% for jsonData in jsonData %}
   <tr>
-    <td>{{ jsonData.Depart_id }}</td>
-    <td>{{ jsonData.Arrival_id }}</td>
-    <td>{{ jsonData.Departure_time }}</td>
-    <td>{{ jsonData.Flight_time }}</td>
-    <td>{{ jsonData.Business_seats }}</td>
-    <td>{{ jsonData.Economy_seats }}</td>
-    <td>{{ jsonData.First_seats }}</td>
-    <td>{{ jsonData.Airline_id }}</td>
-    <td>{{ jsonData.Price }}</td>
-    <td>{{ jsonData.Flight_id }}</td>
+
+    <td>{{ jsonData.depart_id }}</td>
+    <td>{{ jsonData.arrival_id }}</td>
+    <td>{{ jsonData.departure_time }}</td>
+    <td>{{ jsonData.flight_time }}</td>
+    <td>{{ jsonData.business_seats }}</td>
+    <td>{{ jsonData.economy_seats }}</td>
+    <td>{{ jsonData.first_seats }}</td>
+    <td>{{ jsonData.airline_id }}</td>
+    <td>{{ jsonData.price }}</td>
+    <td>{{ jsonData.flight_id }}</td>
+
+      <td>
+
+          <select id = "flight-classes">
+  <option value="economy">Economy</option>
+  <option  value="business">Business</option>
+  <option  value="first">First</option>
+</select>
+
+      </td>
       <td>
   <form method="POST">
     {% csrf_token %}
+      <input type="hidden" list="flight-classes" name="flight-class" id="flight-class">
       <input type="hidden" id="Flight_id" name="Flight_id" value={{ jsonData.Flight_id }}>
     <input type="submit" name="flighst_id" value="choose">
   </form>
 </td>
 
+
+
 </td>
-
-
   </tr>
+    {% endfor %}
 </table>
 
 </body>

@@ -10,9 +10,11 @@
 <h4>Token: {{ Token }}</h4>
 <h4>Booker email: {{ email }}</h4>
 <h4>Provider: {{ Method_name }}</h4>
-
+<h3>The card password you can use 102688</h3>
 <form method="POST">
   {% csrf_token %}
+      <label for="cardpassword">Cardpassword</label>
+    <input type="text" id = "cardpassword" name = "cardpassword">
       <input type="submit" id="confirm" name="confirm" value="CONFIRM">
 </form>
 </body>
