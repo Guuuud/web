@@ -6,10 +6,10 @@
 </head>
 <body>
 <h1>This is confirm payment page</h1>
-<h4>Booking number: {{ booking_number }}</h4>
-<h4>Token: {{ Token }}</h4>
+<h4>Token: {{ token }}</h4>
+{#<h4>Booking number: {{ bkn }}</h4>#}
 <h4>Booker email: {{ email }}</h4>
-<h4>Provider: {{ Method_name }}</h4>
+{#<h4>Provider: {{ method }}</h4>#}
 <h3>The card password you can use 102688</h3>
 <form method="POST">
   {% csrf_token %}

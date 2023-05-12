@@ -1,8 +1,32 @@
 import unittest
 from unittest.mock import patch
 from views import apiSearchflight,apiBookflight
-
+from django.shortcuts import render,redirect,reverse
 class TestApiSearchflight(unittest.TestCase):
+
+    def test_book_result(self):
+        # Create a POST request to the book_result view
+        url = reverse('book_result', args=['city1', 'city2', '2022-06-01T10:00:00Z', '123456'])
+        response = self.client.post(url)
+
+        # Assert that the response is a redirect
+        self.assertEqual(response.status_code, 302)
+
+        # Assert that the redirect URL is correct
+        redirect_url = reverse('getpaymentmethods', args=['123456'])
+        self.assertEqual(response.url, redirect_url)
+
+        # Create a GET request to the book_result view
+        response = self.client.get(url)
+
+        # Assert that the response is OK
+        self.assertEqual(response.status_code, 200)
+
+        # Assert that the response contains the expected context data
+        self.assertContains(response, 'city1')
+        self.assertContains(response, 'city2')
+        self.assertContains(response, '2022-06-01T10:00:00Z')
+        self.assertContains(response, '123456')
 
     @patch('my_module.requests.get')
     def test_apiSearchflight_success(self, mock_get):
@@ -83,5 +107,7 @@ class TestApiSearchflight(unittest.TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'flight_result.html')
+
+
 if __name__ == '__main__':
     unittest.main()
